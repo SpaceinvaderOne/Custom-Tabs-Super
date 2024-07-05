@@ -17,7 +17,7 @@ DEBUG="no"
 
 
 # add your custom commands for each case in the corresponding part below (case 1 to 6) leave empty any you dont want
-# in the cases below you use individual commands like in the first example
+# in the cases below you can use eithe, use individual commands like in the first example,
 # or you can call another script to run in background by using "/path/to/your/other_script.sh &"
 
 
