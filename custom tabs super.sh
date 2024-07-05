@@ -1,12 +1,12 @@
 #!/bin/bash
 #set -x
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-# #   Script to run commands from custom tabs on an Unraid Server								# # 
-# #   by - SpaceInvaderOne																		# # 
-# #																								# # 
-# #   needs Andrew Zawadzki's aka Squid's awesome Custom Tab plugin								# # 
-# #                                                           									# # 	                                                                            
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# #   Script to run commands from custom tabs on an Unraid Server								 
+# #   by - SpaceInvaderOne																		
+# #																								 
+# #   needs Andrew Zawadzki's aka Squid's awesome Custom Tab plugin								 
+# #                                                           										                                                                            
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 # --------------------------
 # USER CONFIGURATION SECTION
