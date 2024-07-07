@@ -1,7 +1,7 @@
 # Unraid Custom Tabs Super - Helper scripts
 
 
-## Clone_custom_tabs.sh
+## clone_custom_tabs.sh
 
 - Will copy the custom tabs settings from one server to another
 - Any references to the Custom Tabs Super locations will be updated to reflect IP of server running the script
@@ -12,7 +12,7 @@
 2. Create a new script and name it 
 3. Copy the script from the GitHub repository and paste it into the newly created script in the User Scripts plugin.
 4. If you want to copy from remote server set copy_from_other_server="yes"  set to "no" and current custom tabs file will be checked for correct ips
-5. If cloning from remote server set ip  example  remote_server_ip="10.10.20.199"
+5. If cloning from remote server set IP   ( example  remote_server_ip="10.10.20.199" )
 6. Run script
 7. Open custom tabs in settings.  Click apply for new config to be used. (you will have to make a change in gui then change back)
 
