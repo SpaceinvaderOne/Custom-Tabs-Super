@@ -16,13 +16,13 @@
 DEBUG="no"
 
 
-# add your custom commands for each case in the corresponding part below (case 1 to 6) leave empty any you dont want
-# in the cases below you can use eithe, use individual commands like in the first example,
+# add your custom commands for each case in the corresponding part below (case 1 to 9) leave empty any you dont want
+# in the cases below you can use either individual commands like in the first example,
 # or you can call another script to run in background by using "/path/to/your/other_script.sh &"
 
 
 execute_case_1_commands() {
-    #below is an example make sure to change
+    # below is an example make sure to change
     beep
     echo "Waking BattleStar"
     etherwake C8:B1:92:78:42:44
@@ -30,42 +30,66 @@ execute_case_1_commands() {
 }
 
 execute_case_2_commands() {
-    # commands between  here 
-	
-	
-	# and here -- dont delete the return below !!
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
     return
 }
 
 execute_case_3_commands() {
-    # commands between  here 
-	
-	
-	# and here -- dont delete the return below !!
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
     return
 }
 
 execute_case_4_commands() {
-    # commands between  here 
-	
-	
-	# and here -- dont delete the return below !!
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
     return
 }
 
 execute_case_5_commands() {
-    # commands between  here 
-	
-	
-	# and here -- dont delete the return below !!
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
     return
 }
 
 execute_case_6_commands() {
-    # commands between  here 
-	
-	
-	# and here -- dont delete the return below !!
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
+    return
+}
+
+execute_case_7_commands() {
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
+    return
+}
+
+execute_case_8_commands() {
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
+    return
+}
+
+execute_case_9_commands() {
+    # commands between here 
+
+
+    # and here -- dont delete the return below !!
     return
 }
 
@@ -79,6 +103,9 @@ custom3_redirect=""
 custom4_redirect=""
 custom5_redirect=""
 custom6_redirect=""
+custom7_redirect=""
+custom8_redirect=""
+custom9_redirect=""
 
 ####################################################################
 # -------------------------------
@@ -149,6 +176,9 @@ http://$IPOFSERVER/mycustompages/custom3.html
 http://$IPOFSERVER/mycustompages/custom4.html
 http://$IPOFSERVER/mycustompages/custom5.html
 http://$IPOFSERVER/mycustompages/custom6.html
+http://$IPOFSERVER/mycustompages/custom7.html
+http://$IPOFSERVER/mycustompages/custom8.html
+http://$IPOFSERVER/mycustompages/custom9.html
 
 If you want to have a safety countdown before the script runs, please copy these urls into the custom tabs plugin
 
@@ -158,6 +188,9 @@ http://$IPOFSERVER/mycustompages/custom3_countdown.html
 http://$IPOFSERVER/mycustompages/custom4_countdown.html
 http://$IPOFSERVER/mycustompages/custom5_countdown.html
 http://$IPOFSERVER/mycustompages/custom6_countdown.html
+http://$IPOFSERVER/mycustompages/custom7_countdown.html
+http://$IPOFSERVER/mycustompages/custom8_countdown.html
+http://$IPOFSERVER/mycustompages/custom9_countdown.html
 EOF
 
     [ "$DEBUG" == "yes" ] && echo "$(date): Created README file at $README_FILE" >> $LOGFILE
@@ -166,7 +199,7 @@ EOF
 
 # create the html files for use with custom tabs
 create_html_files() {
-    for i in {1..6}
+    for i in {1..9}
     do
         HTML_FILE="$DIR/custom${i}.html"
         redirect_var="custom${i}_redirect"
@@ -207,7 +240,7 @@ EOF
 # create the html files for use with custom tabs with countdown so user can stop if accidentally clicked on tab
 
 create_countdown_html() {
-    for i in {1..6}; do
+    for i in {1..9}; do
         local HTML_FILE_COUNTDOWN="$DIR/custom${i}_countdown.html"
         local redirect_var="custom${i}_redirect"
         local redirect_url=${!redirect_var}
@@ -293,7 +326,7 @@ EOF
 
 # make the php files for the html
 create_php_files() {
-    for i in {1..6}
+    for i in {1..9}
     do
         PHP_FILE="$DIR/runscript${i}.php"
 
@@ -324,13 +357,13 @@ initial_setup() {
     create_html_files
     create_countdown_html
     create_php_files
-	create_readme
+    create_readme
 }
 
 ##############################################################################################################
 ##############################################################################################################
 
-# check wether to run setup or just run the custom super tab
+# check whether to run setup or just run the custom super tab
 if [[ -z "$SCRIPT_ID" ]]; then
     initial_setup
 else
@@ -359,6 +392,18 @@ else
         6)
             [ "$DEBUG" == "yes" ] && echo "$(date): Run by PHP Script 6" >> $LOGFILE
             log_execution "execute_case_6_commands"
+            ;;
+        7)
+            [ "$DEBUG" == "yes" ] && echo "$(date): Run by PHP Script 7" >> $LOGFILE
+            log_execution "execute_case_7_commands"
+            ;;
+        8)
+            [ "$DEBUG" == "yes" ] && echo "$(date): Run by PHP Script 8" >> $LOGFILE
+            log_execution "execute_case_8_commands"
+            ;;
+        9)
+            [ "$DEBUG" == "yes" ] && echo "$(date): Run by PHP Script 9" >> $LOGFILE
+            log_execution "execute_case_9_commands"
             ;;
         *)
             [ "$DEBUG" == "yes" ] && echo "$(date): Error: Unknown script ID ($SCRIPT_ID)" >> $LOGFILE
