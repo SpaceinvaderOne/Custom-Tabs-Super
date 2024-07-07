@@ -1,6 +1,6 @@
 # Unraid Custom Tabs Super
 
-This script enhances the functionality of the Unraid server GUI by allowing users to create custom tabs that execute specific commands or scripts when clicked. It supports both immediate execution and delayed execution with a countdown timer, providing a safety mechanism to prevent accidental execution.
+This script enhances the functionality of the Unraid server GUI by integrating with Custom Tabs plugin to allow users to create custom tabs that execute specific commands or scripts when the tab is clicked. It supports both immediate execution and delayed execution with a countdown timer, providing a safety mechanism to prevent accidental execution.
 
 ## Features
 
