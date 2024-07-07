@@ -44,7 +44,7 @@ execute_case_1_commands() {
 ```bash
 execute_case_2_commands() {
     echo "ruuning backup Script"
-    /boot/config/plugins/user.scripts/scripts/backup/script &
+    bash "/boot/config/plugins/user.scripts/scripts/backup/script" &
     return
 }
 
