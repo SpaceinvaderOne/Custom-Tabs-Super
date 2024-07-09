@@ -18,13 +18,13 @@ DEBUG="no"
 
 # add your custom commands for each case in the corresponding part below (case 1 to 9) leave empty any you dont want
 # in the cases below you can use either individual commands like in the first example,
-# or you can call another script to run in background by using "/path/to/your/other_script.sh &"
+# or you can call another script to run in background by using    bash "/path/to/your/other_script.sh" &
 
 
 execute_case_1_commands() {
     # below is an example make sure to change
     beep
-    echo "Waking BattleStar"
+    echo "Waking BaseStar"
     etherwake C8:B1:92:78:42:44
     return
 }
