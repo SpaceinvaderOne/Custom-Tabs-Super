@@ -8,26 +8,36 @@
 # #                                                           										                                                                            
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-# --------------------------
-# USER CONFIGURATION SECTION
-# --------------------------
+####################################################################
+# -------------------------------
+# START OF USER CONFIGURATION SECTION  #############################
+# -------------------------------
+####################################################################
 
-# set debug to "yes" if you want logging, leave as "no" if not
-DEBUG="no"
-
-
-# add your custom commands for each case in the corresponding part below (case 1 to 9) leave empty any you dont want
-# in the cases below you can use either individual commands like in the first example,
-# or you can call another script to run in background by using    bash "/path/to/your/other_script.sh" &
-
+# for each Custom Tab Super - add the commands to be executed in the execute case command section 
+# between "# below is an example be sure to change to meet your needs"   and   "# and here -- dont delete the return below !!"
+# as well as commands you can call other scripts by using bash then the location of the script. ie  bash "/path/to/your/other_script.sh" &
+# each Custom Tab Super needs to be given a redirect URL to go to after executing the commands that should be put between the quotes  ie custom1_redirect="http://10.10.20.199"
+# please note the first tab below is prefilled with dummy data as an example you will need to change this
+#
+#################################
+## Custom Tab Super 1  ##########
+#################################
 
 execute_case_1_commands() {
-    # below is an example make sure to change
-    beep
-    echo "Waking BaseStar"
+    # below is an example be sure to change to meet your needs
+    beep 
     etherwake C8:B1:92:78:42:44
+	# and here -- dont delete the return below !!
     return
 }
+
+custom1_redirect="http://10.10.20.199" # this is an example be sure to change to meet your needs
+custom_message_1="Waking BaseStar Server"   # this is an example be sure to change to meet your needs
+
+#################################
+## Custom Tab Super 2  ##########
+#################################
 
 execute_case_2_commands() {
     # commands between here 
@@ -37,6 +47,13 @@ execute_case_2_commands() {
     return
 }
 
+custom2_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_2=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 3  ##########
+#################################
+
 execute_case_3_commands() {
     # commands between here 
 
@@ -44,6 +61,13 @@ execute_case_3_commands() {
     # and here -- dont delete the return below !!
     return
 }
+
+custom3_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_3=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 4  ##########
+#################################
 
 execute_case_4_commands() {
     # commands between here 
@@ -53,6 +77,13 @@ execute_case_4_commands() {
     return
 }
 
+custom4_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_4=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 5  ##########
+#################################
+
 execute_case_5_commands() {
     # commands between here 
 
@@ -60,6 +91,13 @@ execute_case_5_commands() {
     # and here -- dont delete the return below !!
     return
 }
+
+custom5_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_5=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 6  ##########
+#################################
 
 execute_case_6_commands() {
     # commands between here 
@@ -69,6 +107,13 @@ execute_case_6_commands() {
     return
 }
 
+custom6_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_6=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 7  ##########
+#################################
+
 execute_case_7_commands() {
     # commands between here 
 
@@ -76,6 +121,13 @@ execute_case_7_commands() {
     # and here -- dont delete the return below !!
     return
 }
+
+custom7_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_7=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 8  ##########
+#################################
 
 execute_case_8_commands() {
     # commands between here 
@@ -85,6 +137,13 @@ execute_case_8_commands() {
     return
 }
 
+custom8_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_8=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
+
+#################################
+## Custom Tab Super 9  ##########
+#################################
+
 execute_case_9_commands() {
     # commands between here 
 
@@ -93,26 +152,20 @@ execute_case_9_commands() {
     return
 }
 
-# set the url for where to go after running the custom command above
-# example after waking your other Unraid server goto its webiu http://192.168.1.102 
-# the below are filled out with my different locations and you should change them
+custom9_redirect=""   # put redirect url for custom tab 2 here between the quotes
+custom_message_9=""   # you can put a message to be displayed when clicked here if wanted. otherwise leave as is.
 
-custom1_redirect="http://10.10.20.199" # this is an example be sure to change to meet your needs
-custom2_redirect="" 
-custom3_redirect=""
-custom4_redirect=""
-custom5_redirect=""
-custom6_redirect=""
-custom7_redirect=""
-custom8_redirect=""
-custom9_redirect=""
 
 ####################################################################
 # -------------------------------
 # END USER CONFIGURATION SECTION  ##################################
 # -------------------------------
 ####################################################################
+#
+#
+#
 
+DEBUG="no" # can be set to "yes" for debug logging
 # path for the log file
 LOGFILE="/mnt/user/system/custom_pages/script.log"
 
@@ -140,8 +193,11 @@ log_execution() {
 create_directory_and_symlinks() {
     DIR="/mnt/user/system/custom_pages"
 
-    # create it if not there
-    [ -d "$DIR" ] || mkdir -p "$DIR"
+    # check if the directory exists and delete it if it does
+    [ -d "$DIR" ] && rm -r "$DIR"
+
+    # create the directory
+    mkdir -p "$DIR"
 
     # check and create symlink to userscripts location
     [ -e "$DIR/scripts" ] || { [ "$DEBUG" == "yes" ] && echo "$(date): Making symlink to scripts" >> $LOGFILE; ln -s /boot/config/plugins/user.scripts/scripts "$DIR/scripts"; }
@@ -149,6 +205,7 @@ create_directory_and_symlinks() {
     # check mycustompages symlink if exists if not make it
     [ -e "/usr/local/emhttp/mycustompages" ] || { [ "$DEBUG" == "yes" ] && echo "$(date): Creating symlink to mycustompages" >> $LOGFILE; ln -s "$DIR" /usr/local/emhttp/mycustompages; }
 }
+
 
 #create readme with links for ease of use
 create_readme() {
@@ -204,6 +261,8 @@ create_html_files() {
         HTML_FILE="$DIR/custom${i}.html"
         redirect_var="custom${i}_redirect"
         redirect_url=${!redirect_var}
+        message_var="custom_message_${i}"
+        message=${!message_var}
 
         # check then make html file
         if [ ! -f "$HTML_FILE" ]; then
@@ -229,7 +288,7 @@ function runScriptAndRedirect() {
 </script>
 </head>
 <body onload="runScriptAndRedirect()">
-<p>Running script, please wait...</p>
+<p>${message}</p>
 </body>
 </html>
 EOF
@@ -244,6 +303,8 @@ create_countdown_html() {
         local HTML_FILE_COUNTDOWN="$DIR/custom${i}_countdown.html"
         local redirect_var="custom${i}_redirect"
         local redirect_url=${!redirect_var}
+        message_var="custom_message_${i}"
+        message=${!message_var}
 
         if [ ! -f "$HTML_FILE_COUNTDOWN" ]; then
             [ "$DEBUG" == "yes" ] && echo "$(date): Creating countdown HTML file $HTML_FILE_COUNTDOWN" >> $LOGFILE
@@ -316,7 +377,7 @@ function runScriptAndRedirect() {
     <button class="button cancelButton" onclick="cancelRedirect()">Cancel</button>
     <button class="button continueButton" onclick="continueRedirect()">Continue</button>
 </div>
-<p>Running script, please wait...</p>
+<p>${message}</p>
 </body>
 </html>
 EOF
