@@ -25,7 +25,7 @@
 #################################
 
 execute_case_1_commands() {
-    # below is an example be sure to change to meet your needs
+	# commands between here  ...  below is an example be sure to change to meet your needs
     beep 
     etherwake C8:B1:92:78:42:44
 	# and here -- dont delete the return below !!
