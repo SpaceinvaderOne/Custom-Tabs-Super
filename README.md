@@ -28,8 +28,8 @@ Edit the script to configure custom commands and URLs.
 ### Custom Commands
 
 Define your custom commands in the `execute_case_X_commands` functions.<br>
-For example the command etherwake C8:B1:92:78:42:44  is places as in example 1. <br>
-For example to run a script you use bash then locationof script in quotes see example 2. <br>
+For example the command 'etherwake C8:B1:92:78:42:44'  is places as in example 1. <br>
+For example to run a script you use bash then location of the script in quotes see example 2. <br>
 #### Example 1: Waking Another Server
 
 ```bash
@@ -60,11 +60,11 @@ custom_message_2="Waking BaseStar Server"
 ```
 ### Redirection URLs and Custom Messages
 
-After setting the commands you will see a variable customX_redirect  set that to the URL you want the tab to end up at.
-You will also see a variable custom_message_X  this can be set to display a message when the tab is clicked.
-example from the above.
-URL points to the IP of an Unraid server
-Message says "Running backup script"
+After setting the commands you will see a variable customX_redirect  set that to the URL you want the tab to end up at <br>
+You will also see a variable custom_message_X  this can be set to display a message when the tab is clicked <br>
+example from the above <br>
+URL points to the IP of an Unraid server <br>
+Message says "Running backup script" <br>
 
 ```
 custom2_redirect="http://10.10.20.199" 
