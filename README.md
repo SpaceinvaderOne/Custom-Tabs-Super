@@ -7,6 +7,7 @@ This script enhances the functionality of the Unraid server GUI by integrating w
 - Run custom commands or scripts from each tab
 - Immediate or delayed execution
 - Customisable URLs for redirection after command execution
+- Customisable message to display when tab clicked
 - Easy setup with automated creation of all files. Readme generated with your custom links for the Custom Tabs plugin
 
 ## Prerequisites
@@ -26,40 +27,48 @@ Edit the script to configure custom commands and URLs.
 
 ### Custom Commands
 
-Define your custom commands in the `execute_case_X_commands` functions. For example:
-
+Define your custom commands in the `execute_case_X_commands` functions. 
+For example the command etherwake C8:B1:92:78:42:44  is places as in example 1.
+For example to run a script you use bash then locationof script in quotes see example 2.
 #### Example 1: Waking Another Server
 
 ```bash
+#################################
+## Custom Tab Super 1  ##########
+#################################
+
 execute_case_1_commands() {
-    beep
-    echo "Waking BattleStar"
+    # commands between here 
     etherwake C8:B1:92:78:42:44
+	# and here -- dont delete the return below !!
     return
 }
+
+custom1_redirect="http://10.10.20.199" 
+custom_message_1="Waking BaseStar Server"   
 ```
 
 #### Example 2: Running a Backup script
 
 ```bash
 execute_case_2_commands() {
-    echo "ruuning backup Script"
     bash "/boot/config/plugins/user.scripts/scripts/backup/script" &
     return
 }
+custom2_redirect="http://10.10.20.199" 
+custom_message_2="Waking BaseStar Server"   
+```
+### Redirection URLs and Custom Messages
+
+After setting the commands you will see a variable customX_redirect  set that to the URL you want the tab to end up at.
+You will also see a variable custom_message_X  this can be set to display a message when the tab is clicked.
+example from the above.
+URL points to the IP of an Unraid server
+Message says "Running backup script"
 
 ```
-### Redirection URLs
-
-Set the URLs to redirect to after the command execution. For example:
-
-```bash
-custom1_redirect="http://10.10.20.199"
-custom2_redirect="http://10.10.20.200"
-custom3_redirect=""
-custom4_redirect=""
-custom5_redirect=""
-custom6_redirect=""
+custom2_redirect="http://10.10.20.199" 
+custom_message_2="Running backup script"   
 ```
 
 ### Usage
