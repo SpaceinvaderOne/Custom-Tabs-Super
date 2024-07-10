@@ -27,9 +27,9 @@ Edit the script to configure custom commands and URLs.
 
 ### Custom Commands
 
-Define your custom commands in the `execute_case_X_commands` functions. 
-For example the command etherwake C8:B1:92:78:42:44  is places as in example 1.
-For example to run a script you use bash then locationof script in quotes see example 2.
+Define your custom commands in the `execute_case_X_commands` functions.<br>
+For example the command etherwake C8:B1:92:78:42:44  is places as in example 1. <br>
+For example to run a script you use bash then locationof script in quotes see example 2. <br>
 #### Example 1: Waking Another Server
 
 ```bash
