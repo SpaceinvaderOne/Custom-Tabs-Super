@@ -12,7 +12,7 @@
 # USER CONFIGURATION SECTION
 # --------------------------
 copy_from_other_server="yes"  # Set to "yes" to copy from remote server
-remote_server_ip="10.10.20.199"  # IP address of the remote server
+remote_server_ip="IP_OF_SERVER_TO_CLONE_FROM"  # IP address of the remote server
 
 ####################################################################
 # -------------------------------
