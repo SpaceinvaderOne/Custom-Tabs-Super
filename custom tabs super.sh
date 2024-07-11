@@ -303,8 +303,8 @@ create_countdown_html() {
         local HTML_FILE_COUNTDOWN="$DIR/custom${i}_countdown.html"
         local redirect_var="custom${i}_redirect"
         local redirect_url=${!redirect_var}
-        message_var="custom_message_${i}"
-        message=${!message_var}
+        local message_var="custom_message_${i}"
+        local message=${!message_var}
 
         if [ ! -f "$HTML_FILE_COUNTDOWN" ]; then
             [ "$DEBUG" == "yes" ] && echo "$(date): Creating countdown HTML file $HTML_FILE_COUNTDOWN" >> $LOGFILE
@@ -351,7 +351,10 @@ function startCountdown() {
 
 function cancelRedirect() {
     clearInterval(countdown);
-    document.getElementById('countdownSection').style.display = 'none';
+    document.getElementById('countdownTimer').innerText = 'Cancelled';
+    setTimeout(function() {
+        window.history.back();
+    }, 1000);
 }
 
 function continueRedirect() {
@@ -384,6 +387,7 @@ EOF
         fi
     done
 }
+
 
 # make the php files for the html
 create_php_files() {
